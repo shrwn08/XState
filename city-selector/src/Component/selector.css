@@ -1,0 +1,18 @@
+.country,
+.state,
+.city {
+  width: 15rem;
+  padding: 0.5rem;
+  margin-left: 5px;
+}
+.output{
+  font-size: 18px;
+  font-weight: 700;
+}
+.get-city{
+  font-size: 22px;
+  font-weight: 700;
+}
+.get-state{
+  color: rgb(148, 148, 148);
+}
