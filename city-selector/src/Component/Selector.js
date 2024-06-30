@@ -2,15 +2,15 @@ import React from "react";
 import "./selector.css";
 const Selector = ({
   country,
-  selectedCountry,
   setSelectedCountry,
+  selectCountry,
   state,
   selectedState,
   setSelectedState,
   city,
   selectedCity,
   setSelectedCity,
-  isLoading
+  isLoading,
 }) => {
   if (isLoading) {
     return <div>Loading...</div>;
@@ -29,7 +29,7 @@ const Selector = ({
     <div>
       <h1>Select Location</h1>
       <form>
-        <select className="country" onChange={handleChange}>
+        <select className="country" onChange={handleChange} value={selectCountry}> 
           <option>Select Country</option>
           {country.map((item, index) => (
             <option
@@ -43,7 +43,7 @@ const Selector = ({
           ))}
         </select>
 
-        <select className="state" onChange={handleStateChange}>
+        <select className="state" onChange={handleStateChange} value={selectedState}>
           <option>Select State</option>
           {state.map((item, index) => (
             <option
@@ -56,7 +56,7 @@ const Selector = ({
             </option>
           ))}
         </select>
-        <select className="city" id="city" onChange={handleCityChange}>
+        <select className="city" id="city" onChange={handleCityChange} value={selectedCity}>
           <option>Select City</option>
           {city.map((item, index) => (
             <option value={item} key={index} >
@@ -66,7 +66,7 @@ const Selector = ({
         </select>
         <br/>
       <div className="output">
-        You selected {selectedCity}, {selectedState}, {selectedCountry}
+        {selectedCity && (<div>You selected {selectedCity}, {selectedState}, {selectCountry}</div>)}
       
       </div>
       </form>

@@ -19,7 +19,7 @@ function App() {
           "https://crio-location-selector.onrender.com/countries"
         );
         setCountry(response.data);
-        // console.log(response.data)
+        console.log(response.data)
       } catch (error) {
         console.log("unable fetch country list");
       }
@@ -36,7 +36,7 @@ function App() {
             `https://crio-location-selector.onrender.com/country=${selectedCountry}/states`
           );
           setState(response.data);
-          console.log(response.data);
+          // console.log(response.data);
         } catch (error) {
           console.log("unable to fetch state list");
         }
@@ -54,7 +54,7 @@ function App() {
             `https://crio-location-selector.onrender.com/country=${selectedCountry}/state=${selectedState}/cities`
           );
           setCity(response.data);
-          console.log(response.data);
+          // console.log(response.data);
         } catch (error) {
           console.log("unable to fetch city list");
         }
@@ -64,13 +64,13 @@ function App() {
     setIsLoading(false);
   }, [selectedCountry,selectedState]);
 
-  console.log(selectedCountry)
+  // console.log(selectedCountry)
   return (
     <div className="App">
       <Selector
         country={country}
         setSelectedCountry={setSelectedCountry}
-        selectCountryCountry={selectedCountry}
+        selectCountry={selectedCountry}
         state={state}
         selectedState={selectedState}
         setSelectedState={setSelectedState}
