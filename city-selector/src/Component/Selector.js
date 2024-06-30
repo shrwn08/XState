@@ -66,10 +66,10 @@ const Selector = ({
         </select>
         <br/>
       <div className="output">
-        You selected <span className="get-city"> {getCity}</span>,{" "}
-        <span className="get-state">
+        You selected {getCity}
+    
           {getState},{getCountry}
-        </span>
+      
       </div>
       </form>
       
