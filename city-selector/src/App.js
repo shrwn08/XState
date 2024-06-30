@@ -10,6 +10,7 @@ function App() {
   const [selectedState, setSelectedState] = useState("");
   const [city, setCity] = useState([]);
   const [selectedCity, setSelectedCity] = useState('');
+  const [isLoading,setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCountryData = async () => {
@@ -22,6 +23,7 @@ function App() {
       } catch (error) {
         console.log("unable fetch country list");
       }
+      setIsLoading(false)
     };
     fetchCountryData();
   }, []);
@@ -41,6 +43,7 @@ function App() {
       };
       fetchstateData();
     }
+    setIsLoading(false)
   }, [selectedCountry]);
 
   useEffect(() => {
@@ -58,6 +61,7 @@ function App() {
       };
       fetchCitiesData();
     }
+    setIsLoading(false);
   }, [selectedCountry,selectedState]);
 
   console.log(selectedCountry)
@@ -73,6 +77,7 @@ function App() {
         city={city}
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
+        isLoading={isLoading}
       />
     </div>
   );

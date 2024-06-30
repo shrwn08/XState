@@ -10,8 +10,9 @@ const Selector = ({
   city,
   selectedCity,
   setSelectedCity,
+  isLoading
 }) => {
-  if (!country && !state) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -65,9 +66,7 @@ const Selector = ({
         </select>
         <br/>
       <div className="output">
-        You selected {selectedCity}
-    
-          {selectedState},{selectedCountry}
+        You selected {selectedCity}, {selectedState}, {selectedCountry}
       
       </div>
       </form>
