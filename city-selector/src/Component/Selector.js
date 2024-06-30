@@ -2,29 +2,28 @@ import React from "react";
 import "./selector.css";
 const Selector = ({
   country,
-  getCountry,
-  setGetCountry,
+  selectedCountry,
+  setSelectedCountry,
   state,
-  getState,
-  setGetState,
+  selectedState,
+  setSelectedState,
   city,
-  getCity,
-  setGetCity,
+  selectedCity,
+  setSelectedCity,
 }) => {
   if (!country && !state) {
     return <div>Loading...</div>;
   }
 
   const handleChange = (event) => {
-    setGetCountry(event.target.value);
+    setSelectedCountry(event.target.value);
   };
   const handleStateChange = (event) => {
-    setGetState(event.target.value);
+    setSelectedState(event.target.value);
   };
   const handleCityChange = (event) => {
-    setGetCity(event.target.value);
+    setSelectedCity(event.target.value);
   };
-  console.log(getCountry);
   return (
     <div>
       <h1>Select Location</h1>
@@ -66,9 +65,9 @@ const Selector = ({
         </select>
         <br/>
       <div className="output">
-        You selected {getCity}
+        You selected {selectedCity}
     
-          {getState},{getCountry}
+          {selectedState},{selectedCountry}
       
       </div>
       </form>

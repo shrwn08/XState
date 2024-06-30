@@ -5,11 +5,11 @@ import "./App.css";
 
 function App() {
   const [country, setCountry] = useState([]);
-  const [getCountry, setGetCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [state, setState] = useState([]);
-  const [getState, setGetState] = useState("");
+  const [selectedState, setSelectedState] = useState("");
   const [city, setCity] = useState([]);
-  const [getCity, setGetCity] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
 
   useEffect(() => {
     const fetchCountryData = async () => {
@@ -27,11 +27,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (getCountry) {
+    if (selectedCountry) {
       const fetchstateData = async () => {
         try {
           const response = await axios.get(
-            `https://crio-location-selector.onrender.com/country=${getCountry}/states`
+            `https://crio-location-selector.onrender.com/country=${selectedCountry}/states`
           );
           setState(response.data);
           console.log(response.data);
@@ -41,14 +41,14 @@ function App() {
       };
       fetchstateData();
     }
-  }, [getCountry]);
+  }, [selectedCountry]);
 
   useEffect(() => {
-    if (getCountry && getState) {
+    if (selectedCountry && selectedState) {
       const fetchCitiesData = async () => {
         try {
           const response = await axios.get(
-            `https://crio-location-selector.onrender.com/country=${getCountry}/state=${getState}/cities`
+            `https://crio-location-selector.onrender.com/country=${selectedCountry}/state=${selectedState}/cities`
           );
           setCity(response.data);
           console.log(response.data);
@@ -58,21 +58,21 @@ function App() {
       };
       fetchCitiesData();
     }
-  }, [getCountry,getState]);
+  }, [selectedCountry,selectedState]);
 
-  console.log(getCountry)
+  console.log(selectedCountry)
   return (
     <div className="App">
       <Selector
         country={country}
-        setGetCountry={setGetCountry}
-        getCountry={getCountry}
+        setSelectedCountry={setSelectedCountry}
+        selectCountryCountry={selectedCountry}
         state={state}
-        getState={getState}
-        setGetState={setGetState}
+        selectedState={selectedState}
+        setSelectedState={setSelectedState}
         city={city}
-        getCity={getCity}
-        setGetCity={setGetCity}
+        selectedCity={selectedCity}
+        setSelectedCity={setSelectedCity}
       />
     </div>
   );
