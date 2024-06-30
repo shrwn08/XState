@@ -64,14 +64,15 @@ const Selector = ({
             </option>
           ))}
         </select>
-      </form>
-      <br/>
+        <br/>
       <div className="output">
         You selected <span className="get-city"> {getCity}</span>,{" "}
         <span className="get-state">
           {getState},{getCountry}
         </span>
       </div>
+      </form>
+      
     </div>
   );
 };
